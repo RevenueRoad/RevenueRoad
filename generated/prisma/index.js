@@ -173,7 +173,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/Users/anneliu/revenue-road/generated/prisma",
+      "value": "/Users/raisa/Documents/RevenueRoad/RevenueRoad/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -187,7 +187,7 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/Users/anneliu/revenue-road/prisma/schema.prisma",
+    "sourceFilePath": "/Users/raisa/Documents/RevenueRoad/RevenueRoad/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
@@ -201,7 +201,7 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": false,
+  "postinstall": true,
   "inlineDatasources": {
     "db": {
       "url": {
