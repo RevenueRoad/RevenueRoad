@@ -53,7 +53,14 @@ export default async function Home() {
               <p className="text-center text-2xl text-white">
                 {session && <span>Logged in as {session.user?.name}</span>}
               </p>
-              <button onClick={() => signIn("github")}></button>
+              <form
+                action={async () => {
+                  "use server"
+                  await signIn("github")
+                }}
+              >
+                <button type="submit">Signin with GitHub</button>
+              </form>
             </div>
           </div>
 
