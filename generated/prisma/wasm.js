@@ -172,7 +172,11 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
+<<<<<<< HEAD
       "value": "C:\\Users\\lukas\\Github Projects\\RevenueRoad\\generated\\prisma",
+=======
+      "value": "/Users/anneliu/revenue-road/generated/prisma",
+>>>>>>> Anne
       "fromEnvVar": null
     },
     "config": {
@@ -181,16 +185,29 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
+<<<<<<< HEAD
         "value": "windows",
+=======
+        "value": "darwin-arm64",
+>>>>>>> Anne
         "native": true
       }
     ],
     "previewFeatures": [],
+<<<<<<< HEAD
     "sourceFilePath": "C:\\Users\\lukas\\Github Projects\\RevenueRoad\\prisma\\schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
     "rootEnvPath": null
+=======
+    "sourceFilePath": "/Users/anneliu/revenue-road/prisma/schema.prisma",
+    "isCustomOutput": true
+  },
+  "relativeEnvPaths": {
+    "rootEnvPath": null,
+    "schemaEnvPath": "../../.env"
+>>>>>>> Anne
   },
   "relativePath": "../../prisma",
   "clientVersion": "6.19.0",
