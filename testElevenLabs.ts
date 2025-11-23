@@ -4,6 +4,22 @@ import fs from "fs";
 import { generateRoadmap } from "./index.ts";
 import { ElevenLabsClient } from "@elevenlabs/elevenlabs-js";
 
+//mongodb code 
+import {Binary} from "mongodb";
+import clientPromise from "mongodb.ts";
+
+//save audio files 
+export async function saveAudio(audioBuffer: Buffer, text: string) {
+  const client = await clientPromise;
+  const db = client.db("revenue_db");
+
+  return db.collection("audio_files").insertOne({
+    audio: new Binary(audioBuffer),
+    text,
+    createdAt: new Date(),
+  });
+}
+
 // Pass ElevenLabs API
 const client = new ElevenLabsClient({
         apiKey: process.env.ELEVENLABS_API_KEY,
@@ -45,6 +61,10 @@ async function main() {
 
     fs.writeFileSync("amazingFinancialAdvice.mp3", audioBuffer);
     console.log("Audio saved as amazingFinancialAdvice.mp3")
+
+    //connect to mongoDB
+    const result = await saveAudio(audioBuffer, textToSpeech);
+    console.log("Audio saved to MongoDB with ID:", result.insertedId);
   } catch (err) {
     console.error("Error calling Gemini API:", err);
   }
