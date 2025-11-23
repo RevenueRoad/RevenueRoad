@@ -51,16 +51,27 @@ const extractionResponse = await ai.models.generateContent({
     console.error("Failed to parse JSON from Gemini:", cleanText);
     return;
   }  
+  const today = new Date();
+  const formattedToday = today.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 
   //Generate roadmap
   const roadmapPrompt = `
-You are a robotic financial coach for beginners. Do not greet the user or say anything extra. Literally only generate the things you need to in the most minimal way possible.
+You are a robotic financial coach for beginners. Today's date is: ${formattedToday} Do not greet the user or say anything extra. Literally only generate the things you need to in the most minimal way possible.
 The user wants a main financial goal and a checklist of actionable tasks.
 Use the following data:
 - Total Target: ${extractedData.total_target}
 - Contribution Frequency: ${extractedData.contribution_frequency}
 - Annual Income: ${extractedData.annual_income}
 - Monthly Expenses: ${extractedData.monthly_expenses}
+
+VERY IMPORTANT:
+All dates must use this EXACT format:
+"MMM DD, YYYY"
+Example: "Nov 29, 2025"
 
 Generate:
 1. A main goal statement
