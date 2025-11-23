@@ -5,7 +5,7 @@ import { stdin as input, stdout as output } from 'node:process';
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
-async function main() {
+export async function generateRoadmap() {
   const rl = readline.createInterface({ input, output });
 
   console.log("Welcome! Let's create your personalized financial roadmap.\n");
@@ -82,8 +82,7 @@ The Tasks should have the structure "Invest [however much] by [date]" (e.g, Inve
     contents: roadmapPrompt
   });
 
-  console.log("\nHere’s your personalized financial roadmap:\n");
-  console.log(roadmapResponse.text);
+  //console.log("\nHere’s your personalized financial roadmap:\n");
+  //console.log(roadmapResponse.text);
+  return roadmapResponse.text
 }
-
-main();

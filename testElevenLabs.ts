@@ -1,13 +1,8 @@
 // Import env files
 import "dotenv/config"
 import fs from "fs";
-import { GoogleGenAI } from "@google/genai";
+import { generateRoadmap } from "./index.ts";
 import { ElevenLabsClient } from "@elevenlabs/elevenlabs-js";
-
-// Pass Gemini API Key.
-const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY,
-});
 
 // Pass ElevenLabs API
 const client = new ElevenLabsClient({
@@ -17,14 +12,8 @@ const client = new ElevenLabsClient({
 
 async function main() {
     try {
-        // Use Gemini 2.5 Model.
-        const roadmapResponse = await ai.models.generateContent({
-            model: "gemini-2.5-flash",
-            contents: "How does AI work?",
-        });
-
         // Store text needed to be converted.
-        const textToSpeech = roadmapResponse.text;
+        const textToSpeech = await generateRoadmap();
 
         // Need this if condition to account for response.text being undefined.
         if (!textToSpeech) {
@@ -54,8 +43,8 @@ async function main() {
 
     const audioBuffer = Buffer.concat(blocks)
 
-    fs.writeFileSync("geminiAudio.mp3", audioBuffer);
-    console.log("Audio saved as geminiAudio.mp3")
+    fs.writeFileSync("amazingFinancialAdvice.mp3", audioBuffer);
+    console.log("Audio saved as amazingFinancialAdvice.mp3")
   } catch (err) {
     console.error("Error calling Gemini API:", err);
   }
