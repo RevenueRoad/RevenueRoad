@@ -1,6 +1,6 @@
-import { MongoClient } from "mongodb";
+import  {MongoClient}  from "mongo";
 
-const uri = process.env.MONGODB_URI;
+const uri = process.env.DATABASE_URL;
 const options = {};
 
 if (!uri) {

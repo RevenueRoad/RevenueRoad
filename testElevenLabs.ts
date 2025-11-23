@@ -5,9 +5,8 @@ import { generateRoadmap } from "./index.ts";
 import { ElevenLabsClient } from "@elevenlabs/elevenlabs-js";
 
 //mongodb code 
-import {Binary} from "mongodb";
-import clientPromise from "mongodb.ts";
-
+import { Binary } from "mongodb"; 
+import clientPromise from "./mongo.ts";
 //save audio files 
 export async function saveAudio(audioBuffer: Buffer, text: string) {
   const client = await clientPromise;
@@ -70,3 +69,4 @@ async function main() {
   }
 }
 await main();
+
