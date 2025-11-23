@@ -172,7 +172,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "C:\\Users\\lukas\\Github Projects\\RevenueRoad\\generated\\prisma",
+      "value": "/Users/anneliu/revenue-road/generated/prisma",
       "fromEnvVar": null
     },
     "config": {
@@ -181,12 +181,12 @@ const config = {
     "binaryTargets": [
       {
         "fromEnvVar": null,
-        "value": "windows",
+        "value": "darwin-arm64",
         "native": true
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "C:\\Users\\lukas\\Github Projects\\RevenueRoad\\prisma\\schema.prisma",
+    "sourceFilePath": "/Users/anneliu/revenue-road/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
