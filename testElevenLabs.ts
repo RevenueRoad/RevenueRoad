@@ -4,10 +4,12 @@ import fs from "fs";
 import { GoogleGenAI } from "@google/genai";
 import { ElevenLabsClient } from "@elevenlabs/elevenlabs-js";
 
+// Pass Gemini API Key.
 const ai = new GoogleGenAI({
-  apiKey: process.env.GEMINI_API_KEY, // pass the key here
+  apiKey: process.env.GEMINI_API_KEY,
 });
 
+// Pass ElevenLabs API
 const client = new ElevenLabsClient({
         apiKey: process.env.ELEVENLABS_API_KEY,
         environment: "https://api.elevenlabs.io/",
@@ -16,13 +18,13 @@ const client = new ElevenLabsClient({
 async function main() {
     try {
         // Use Gemini 2.5 Model.
-        const response = await ai.models.generateContent({
+        const roadmapResponse = await ai.models.generateContent({
             model: "gemini-2.5-flash",
             contents: "How does AI work?",
         });
 
         // Store text needed to be converted.
-        const textToSpeech = response.text;
+        const textToSpeech = roadmapResponse.text;
 
         // Need this if condition to account for response.text being undefined.
         if (!textToSpeech) {
